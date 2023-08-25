@@ -3,10 +3,13 @@ extends Node
 
 const KANA_MODLOADERPATCHER_DIR := "KANA-ModLoaderPatcher"
 const KANA_MODLOADERPATCHER_LOG_NAME_MAIN := "KANA-ModLoaderPatcher:Main"
+const KANA_LATEST_MOD_LOADER_VERSION := "6.2.0"
 
 var mod_dir_path := ""
 var extensions_dir_path := ""
 var translations_dir_path := ""
+
+var TEMP_DIR_GLOBAL_PATH := ProjectSettings.globalize_path(_ModLoaderPath.get_local_folder_dir("ModLoaderPatcher/"))
 
 
 func _init(modloader = ModLoader) -> void:
@@ -29,6 +32,14 @@ func add_translations() -> void:
 
 
 func _ready() -> void:
+	ModLoaderLog.info("Current ModLoader Version -> %s" % ModLoaderStore.MODLOADER_VERSION, KANA_MODLOADERPATCHER_LOG_NAME_MAIN)
+
+	if ModLoaderStore.MODLOADER_VERSION == KANA_LATEST_MOD_LOADER_VERSION:
+		ModLoaderLog.info("ModLoader up to date - skipping mod setup.", KANA_MODLOADERPATCHER_LOG_NAME_MAIN)
+		if _ModLoaderFile.dir_exists(TEMP_DIR_GLOBAL_PATH):
+			KANA_clean_up_temp_dir()
+		return
+
 	var menu_mods_scene: Control = load("res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/menu_mods.tscn").instance()
 	var btn_patch_modloader_scene: Control = load("res://mods-unpacked/KANA-ModLoaderPatcher/ui/menus/pages/mods/parts/Btn_Patch_ModLoader.tscn").instance()
 
@@ -49,3 +60,8 @@ func _ready() -> void:
 	workshop_btn.set_owner(menu_mods_scene)
 
 	ModLoaderMod.save_scene(menu_mods_scene, "res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/menu_mods.tscn")
+
+
+func KANA_clean_up_temp_dir() -> void:
+	ModLoaderLog.debug("Moved patch temp dir to trash - path: %s" % TEMP_DIR_GLOBAL_PATH, KANA_MODLOADERPATCHER_LOG_NAME_MAIN)
+	OS.move_to_trash(TEMP_DIR_GLOBAL_PATH)

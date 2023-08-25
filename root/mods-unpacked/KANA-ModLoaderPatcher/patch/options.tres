@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://addons/mod_loader/options/profiles/current.tres" type="Resource" id=1]
+[ext_resource path="res://addons/mod_loader/resources/options_current.gd" type="Script" id=2]
+[ext_resource path="res://addons/mod_loader/options/profiles/editor.tres" type="Resource" id=3]
+[ext_resource path="res://addons/mod_loader/options/profiles/production_workshop.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 2 )
+current_options = ExtResource( 1 )
+feature_override_options = {
+"editor": ExtResource( 3 ),
+"standalone": ExtResource( 4 )
+}
