@@ -1,0 +1,317 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=1]
+[ext_resource path="res://mods-unpacked/KANA-ModLoaderPatcher/ui/menus/pages/mods/parts/panel_patch_modloader.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/GridContainer/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/GridContainer/Label2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "label_download_modloader_green"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/GridContainer/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.729412, 0.0117647, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "label_download_pcktool_green"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/GridContainer/Label2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.729412, 0.0117647, 1 ) ]
+}
+
+[node name="ModLoader_Patch_Panel" type="Panel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 45
+custom_constants/margin_top = 45
+custom_constants/margin_left = 45
+custom_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 2657.0
+margin_bottom = 1035.0
+
+[node name="Label_Heading" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 2612.0
+margin_bottom = 45.0
+text = "KANA_LABEL_PATCH_MODLOADER_HEADING"
+align = 1
+
+[node name="Space_6" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 2612.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 2612.0
+margin_bottom = 290.0
+size_flags_vertical = 3
+custom_constants/margin_top = 5
+custom_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_top = 5.0
+margin_right = 2612.0
+margin_bottom = 187.0
+
+[node name="Static_Info" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 2607.0
+margin_bottom = 177.0
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "1. Click the \"Download\" button for ModLoader, ModLoader Options File, and PCKTool.
+2. If everything is green and there are no error messages, click the \"Patch\" button.
+3. The game will restart, and the ModLoader will be patched.
+
+[color=#ccc] If the game stops working after the patch for any reason, a backup is available in the Brotato install directory. You can delete the \"Brotato.pck\" file and rename the \"Brotato_original.pck\" to \"Brotato.pck\". [/color]"
+text = "1. Click the \"Download\" button for ModLoader, ModLoader Options File, and PCKTool.
+2. If everything is green and there are no error messages, click the \"Patch\" button.
+3. The game will restart, and the ModLoader will be patched.
+
+ If the game stops working after the patch for any reason, a backup is available in the Brotato install directory. You can delete the \"Brotato.pck\" file and rename the \"Brotato_original.pck\" to \"Brotato.pck\". "
+
+[node name="Space_5" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 294.0
+margin_right = 2612.0
+margin_bottom = 339.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="Panel_ModLoader_Version" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.580392 )
+margin_top = 343.0
+margin_right = 2612.0
+margin_bottom = 398.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel_ModLoader_Version"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 2607.0
+margin_bottom = 50.0
+
+[node name="Label_ModLoader_Version" type="Label" parent="MarginContainer/VBoxContainer/Panel_ModLoader_Version/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 890.0
+margin_bottom = 45.0
+text = "KANA_LABEL_CURRENT_MODLOADER_VERSION"
+
+[node name="Space_1" type="Control" parent="MarginContainer/VBoxContainer/Panel_ModLoader_Version/HBoxContainer"]
+margin_left = 894.0
+margin_right = 904.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Label_ModLoader_Version_Number" type="Label" parent="MarginContainer/VBoxContainer/Panel_ModLoader_Version/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 908.0
+margin_right = 908.0
+margin_bottom = 45.0
+
+[node name="Space_2" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 402.0
+margin_right = 2612.0
+margin_bottom = 447.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 451.0
+margin_right = 2612.0
+margin_bottom = 626.0
+custom_constants/vseparation = 45
+custom_constants/hseparation = 45
+columns = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_top = 10.0
+margin_right = 747.0
+margin_bottom = 55.0
+text = "KANA_LABEL_SELECT_MODLOADER_ZIP"
+
+[node name="Button_Select_ModLoader" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+visible = false
+margin_left = 792.0
+margin_right = 1533.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+text = "KANA_BTN_SELECT_MODLOADER_ZIP"
+
+[node name="Button_Download_ModLoader" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 792.0
+margin_right = 1637.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+text = "KANA_BTN_DOWNLOAD_MOD_LOADER_ZIP"
+
+[node name="Button_Download_ModLoader_Option" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 1682.0
+margin_right = 2612.0
+margin_bottom = 65.0
+disabled = true
+text = "KANA_BTN_DOWNLOAD_MOD_LOADER_OPTION"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_top = 120.0
+margin_right = 747.0
+margin_bottom = 165.0
+text = "KANA_LABEL_SELECT_PCKTOOL"
+
+[node name="Button_Select_PckTool" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+visible = false
+margin_left = 792.0
+margin_top = 110.0
+margin_right = 1637.0
+margin_bottom = 175.0
+size_flags_horizontal = 3
+text = "KANA_BTN_SELECT_PCKTOOL"
+
+[node name="Button_Download_PckTool" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 792.0
+margin_top = 110.0
+margin_right = 1637.0
+margin_bottom = 175.0
+size_flags_horizontal = 3
+text = "KANA_BTN_DOWNLOAD_PCKTOOL"
+
+[node name="Empty_Grid_Space" type="Control" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 1682.0
+margin_top = 110.0
+margin_right = 2612.0
+margin_bottom = 175.0
+
+[node name="Space_3" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 630.0
+margin_right = 2612.0
+margin_bottom = 675.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="Info_Container" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.580392 )
+margin_top = 679.0
+margin_right = 2612.0
+margin_bottom = 872.0
+size_flags_vertical = 3
+
+[node name="Rich_Info" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Info_Container"]
+unique_name_in_owner = true
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 2607.0
+margin_bottom = 188.0
+size_flags_vertical = 3
+scroll_following = true
+
+[node name="Space_4" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 876.0
+margin_right = 2612.0
+margin_bottom = 921.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 925.0
+margin_right = 2612.0
+margin_bottom = 990.0
+
+[node name="Space_1" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 577.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+
+[node name="Button_Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 581.0
+margin_right = 1400.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+text = "KANA_MODLOADER_PATCHER_BTN_BACK"
+
+[node name="Space_3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 1404.0
+margin_right = 1449.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 45, 0 )
+
+[node name="Button_Start_Patch" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 1453.0
+margin_right = 2030.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+disabled = true
+text = "KANA_BTN_START_PATCH"
+
+[node name="Space_2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 2034.0
+margin_right = 2612.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+anims/RESET = SubResource( 1 )
+anims/label_download_modloader_green = SubResource( 2 )
+anims/label_download_pcktool_green = SubResource( 3 )
+
+[node name="Timer_restart" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button_Download_ModLoader" to="." method="_on_Button_Download_ModLoader_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button_Download_ModLoader_Option" to="." method="_on_Button_Download_ModLoader_Option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button_Download_PckTool" to="." method="_on_Button_Download_PckTool_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Button_Back" to="." method="_on_Button_Back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Button_Start_Patch" to="." method="_on_Button_Start_Patch_pressed"]
+[connection signal="timeout" from="Timer_restart" to="." method="_on_Timer_restart_timeout"]

@@ -42,6 +42,7 @@ func _ready() -> void:
 
 	var menu_mods_scene: Control = load("res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/menu_mods.tscn").instance()
 	var btn_patch_modloader_scene: Control = load("res://mods-unpacked/KANA-ModLoaderPatcher/ui/menus/pages/mods/parts/Btn_Patch_ModLoader.tscn").instance()
+	var panel_patch_modloader_scene: Panel = load("res://mods-unpacked/KANA-ModLoaderPatcher/ui/menus/pages/mods/parts/panel_patch_modloader.tscn").instance()
 
 	var button_container: VBoxContainer = menu_mods_scene.get_node("VBoxContainer/Buttons")
 	var workshop_btn: Button = button_container.get_node('WorkshopButton')
@@ -59,6 +60,11 @@ func _ready() -> void:
 	btn_patch_modloader_scene.add_child(workshop_btn)
 	workshop_btn.set_owner(menu_mods_scene)
 
+	# Add the Patch Panel
+	menu_mods_scene.add_child(panel_patch_modloader_scene)
+	panel_patch_modloader_scene.set_owner(menu_mods_scene)
+
+	# Save the original scene
 	ModLoaderMod.save_scene(menu_mods_scene, "res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/menu_mods.tscn")
 
 
