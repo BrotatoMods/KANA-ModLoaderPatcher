@@ -1,7 +1,7 @@
 {
 	"name": "ModLoaderPatcher",
 	"namespace": "KANA",
-	"version_number": "1.1.0",
+	"version_number": "1.1.1",
 	"description": "Patches the ModLoader to the latest version, which is currently 6.2.0. \nThis mod is currently only working on Windows.\n\nThe game will be restarted once to apply the patch. \nAfter the restart, the \"Patch\" button in the mods menu should disappear.\n\nAll older mods will remain compatible with the updated ModLoader.",
 	"website_url": "https://github.com/BrotatoMods/KANA-ModLoaderPatcher/tree/main",
 	"dependencies": [

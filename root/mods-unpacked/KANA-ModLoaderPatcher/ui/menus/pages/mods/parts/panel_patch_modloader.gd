@@ -189,8 +189,8 @@ func _download_options_resource_file_completed(result, response_code, headers, b
 	file.store_buffer(body)
 	file.close()
 
-	ModLoaderLog.debug("download ModLoader Options file completed - path: %s" % MODLOADER_GLOBAL_ZIP_PATH, KANA_MODLOADERPATCHER_LOG_NAME_PATCH_PANEL)
-	KANA_add_info("ModLoader options file download completed - path: %s" % MODLOADER_GLOBAL_ZIP_PATH)
+	ModLoaderLog.debug("download ModLoader Options file completed - path: %s" % GLOBAL_VANILLA_OPTIONS_RESOURCE, KANA_MODLOADERPATCHER_LOG_NAME_PATCH_PANEL)
+	KANA_add_info("ModLoader options file download completed - path: %s" % GLOBAL_VANILLA_OPTIONS_RESOURCE)
 	emit_signal("download_modloader_option_completed")
 
 	modloader_option_download_completed = true
